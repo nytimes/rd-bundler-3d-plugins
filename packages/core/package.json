@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@nyt/bundler-plugin-gltf",
+  "version": "0.1.1",
+  "main": "dist/core.cjs",
+  "module": "dist/core.mjs",
+  "author": "NYTimes R&D",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@gltf-transform/core": "^2.4.4",
+    "@gltf-transform/extensions": "^2.4.4",
+    "@gltf-transform/functions": "^2.4.4",
+    "@rollup/pluginutils": "^4.2.1",
+    "draco3dgltf": "^1.5.3",
+    "meshoptimizer": "^0.18.1"
+  },
+  "scripts": {
+    "clean": "rimraf -rf dist/*",
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  }
+}

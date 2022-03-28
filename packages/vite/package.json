@@ -1,0 +1,26 @@
+{
+  "name": "@nyt/vite-plugin-gltf",
+  "description": "Vite plugin for optimizing glTF 3D models",
+  "version": "0.1.1",
+  "main": "dist/vite.cjs",
+  "module": "dist/vite.mjs",
+  "author": "NYTimes R&D",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@gltf-transform/core": "^2.4.4",
+    "@gltf-transform/extensions": "^2.4.4",
+    "@gltf-transform/functions": "^2.4.4",
+    "@rollup/pluginutils": "^4.2.1",
+    "draco3dgltf": "^1.5.3",
+    "meshoptimizer": "^0.18.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf -rf dist/*",
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "gitHead": "9554c27f569be48282436381bc672cb81d9fd656"
+}
