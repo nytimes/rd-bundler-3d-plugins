@@ -1,0 +1,30 @@
+{
+  "name": "rollup-plugin-gltf",
+  "description": "Rollup plugin for optimizing glTF 3D models",
+  "repository": "github:nytimes/rd-bundler-3d-plugins",
+  "version": "3.0.0",
+  "type": "module",
+  "main": "dist/rollup.cjs",
+  "module": "dist/rollup.js",
+  "author": "NYTimes R&D",
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf -rf dist/*",
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "gitHead": "9554c27f569be48282436381bc672cb81d9fd656",
+  "dependencies": {
+    "@rollup/pluginutils": "^5.0.2",
+    "draco3dgltf": "^1.5.5",
+    "meshoptimizer": "^0.18.1"
+  },
+  "peerDependencies": {
+    "@gltf-transform/core": "2.x",
+    "@gltf-transform/extensions": "2.x",
+    "@gltf-transform/functions": "2.x"
+  }
+}

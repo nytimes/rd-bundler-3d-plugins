@@ -1,0 +1,27 @@
+{
+  "packageManager": "yarn@3.2.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "watch": "lerna run watch --parallel",
+    "clean": "lerna run clean --parallel",
+    "test": "node test/test.js",
+    "version": "yarn build",
+    "postpublish": "git push && git push --tags",
+    "publish:patch": "lerna publish patch --force-publish '*' && yarn postpublish",
+    "publish:minor": "lerna publish minor --force-publish '*' && yarn postpublish",
+    "publish:major": "lerna publish major --force-publish '*' && yarn postpublish"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^2.4.7",
+    "@gltf-transform/extensions": "^2.4.7",
+    "@gltf-transform/functions": "^2.4.7",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "lerna": "^6.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.5.1"
+  }
+}
