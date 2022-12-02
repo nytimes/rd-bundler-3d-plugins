@@ -38,7 +38,9 @@ jobs:
               with:
                   languages: ${{ matrix.language }}
 
-            - run: |
+            - name: Build
+              run: |
+                npm install --global yarn
                 yarn install
                 yarn build
 
