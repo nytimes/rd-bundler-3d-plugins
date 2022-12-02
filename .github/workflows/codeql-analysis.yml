@@ -38,6 +38,8 @@ jobs:
               with:
                   languages: ${{ matrix.language }}
 
+            # Manually installing yarn seems to be required in the codeql runners,
+            # but not in ubuntu-latest (used in ci.yml).
             - name: Build
               run: |
                 npm install --global yarn
