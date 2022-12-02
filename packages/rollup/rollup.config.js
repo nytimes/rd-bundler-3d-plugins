@@ -1,5 +1,5 @@
-import resolve from '@rollup/plugin-node-resolve';
-import pkg from "./package.json";
+import resolve from "@rollup/plugin-node-resolve";
+import pkg from "./package.json" assert { type: "json" };
 
 export default {
   input: "rollup.js",
