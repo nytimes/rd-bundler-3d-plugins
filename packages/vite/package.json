@@ -8,14 +8,6 @@
   "module": "dist/vite.js",
   "author": "NYTimes R&D",
   "license": "Apache-2.0",
-  "dependencies": {
-    "@gltf-transform/core": "^2.4.6",
-    "@gltf-transform/extensions": "^2.4.6",
-    "@gltf-transform/functions": "^2.4.6",
-    "@rollup/pluginutils": "^5.0.2",
-    "draco3dgltf": "^1.5.5",
-    "meshoptimizer": "^0.18.1"
-  },
   "files": [
     "dist"
   ],
@@ -24,5 +16,15 @@
     "build": "rollup -c",
     "watch": "rollup -c -w"
   },
-  "gitHead": "9554c27f569be48282436381bc672cb81d9fd656"
+  "gitHead": "9554c27f569be48282436381bc672cb81d9fd656",
+  "dependencies": {
+    "@rollup/pluginutils": "^5.0.2",
+    "draco3dgltf": "^1.5.5",
+    "meshoptimizer": "^0.18.1"
+  },
+  "peerDependencies": {
+    "@gltf-transform/core": "2.x",
+    "@gltf-transform/extensions": "2.x",
+    "@gltf-transform/functions": "2.x"
+  }
 }

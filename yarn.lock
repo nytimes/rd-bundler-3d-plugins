@@ -39,37 +39,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gltf-transform/core@npm:^2.4.6":
-  version: 2.4.6
-  resolution: "@gltf-transform/core@npm:2.4.6"
+"@gltf-transform/core@npm:^2.4.7":
+  version: 2.4.7
+  resolution: "@gltf-transform/core@npm:2.4.7"
   dependencies:
     gl-matrix: ~3.4.3
     property-graph: ^0.2.6
-  checksum: f02fd633f76b4eacdbe5f84272e09bb6aa9bda74d7d2252bb490cd2cb004554e2cd66b518fdfdcf8676246d48133daa7ed09753a7790e5a7db5d73a8217be139
+  checksum: 8cddf972f21c6472f500c8cd06ba40baa78bbe4eae3a77816c647049b0bc47a9b18c6b0aea03a06a6aed3b8f50d98fcb1da67cdfd44f5349514f7f254c4e8227
   languageName: node
   linkType: hard
 
-"@gltf-transform/extensions@npm:^2.4.6":
-  version: 2.4.6
-  resolution: "@gltf-transform/extensions@npm:2.4.6"
+"@gltf-transform/extensions@npm:^2.4.7":
+  version: 2.4.7
+  resolution: "@gltf-transform/extensions@npm:2.4.7"
   dependencies:
-    "@gltf-transform/core": ^2.4.6
+    "@gltf-transform/core": ^2.4.7
     ktx-parse: ^0.4.5
-  checksum: 4b1d1da3529691f5ccd7c87b91047ba7008ecdc4f3b1eae56acfaa6567bc60a28f63d3b7e610367059f1073c4cb810a040922df3ce49b94a363b90d062965e03
+  checksum: 253ff0ba7e73e3ae174109e017d7540a98d0d84cb5497da636a04ef399e48b1f2d1c40cd41a9be71c65f8b1f7b511d61ddddb374a27a55dd6e4deed773ee6916
   languageName: node
   linkType: hard
 
-"@gltf-transform/functions@npm:^2.4.6":
-  version: 2.4.6
-  resolution: "@gltf-transform/functions@npm:2.4.6"
+"@gltf-transform/functions@npm:^2.4.7":
+  version: 2.4.7
+  resolution: "@gltf-transform/functions@npm:2.4.7"
   dependencies:
-    "@gltf-transform/core": ^2.4.6
-    "@gltf-transform/extensions": ^2.4.6
+    "@gltf-transform/core": ^2.4.7
+    "@gltf-transform/extensions": ^2.4.7
     gl-matrix: ~3.4.3
     ndarray: ^1.0.19
     ndarray-lanczos: ^0.1.2
     ndarray-pixels: ^1.0.0
-  checksum: a1b2b65823e63da4cee706a7e4ac4beb15021f79edf877784ae5bd87b0f8312c1f317299c014efed8ad8582b206232b28ecf9bf47032db44610d83cfef2243bd
+  checksum: 0bf2c2805e758c113bb16d6aabe8e5eaf72d0eb0a105541779d0eefa62f0ae40f643c3c11515f9d287d3dcd935ef2f8a2d701b855c3b9521519a0c29945b6b18
   languageName: node
   linkType: hard
 
@@ -1119,12 +1119,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@nyt/bundler-plugin-gltf@workspace:packages/core"
   dependencies:
-    "@gltf-transform/core": ^2.4.6
-    "@gltf-transform/extensions": ^2.4.6
-    "@gltf-transform/functions": ^2.4.6
     "@rollup/pluginutils": ^5.0.2
     draco3dgltf: ^1.5.5
     meshoptimizer: ^0.18.1
+  peerDependencies:
+    "@gltf-transform/core": 2.x
+    "@gltf-transform/extensions": 2.x
+    "@gltf-transform/functions": 2.x
   languageName: unknown
   linkType: soft
 
@@ -5506,12 +5507,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rollup-plugin-gltf@workspace:packages/rollup"
   dependencies:
-    "@gltf-transform/core": ^2.4.6
-    "@gltf-transform/extensions": ^2.4.6
-    "@gltf-transform/functions": ^2.4.6
     "@rollup/pluginutils": ^5.0.2
     draco3dgltf: ^1.5.5
     meshoptimizer: ^0.18.1
+  peerDependencies:
+    "@gltf-transform/core": 2.x
+    "@gltf-transform/extensions": 2.x
+    "@gltf-transform/functions": 2.x
   languageName: unknown
   linkType: soft
 
@@ -5533,6 +5535,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@gltf-transform/core": ^2.4.7
+    "@gltf-transform/extensions": ^2.4.7
+    "@gltf-transform/functions": ^2.4.7
     "@rollup/plugin-node-resolve": ^15.0.1
     lerna: ^6.1.0
     rimraf: ^3.0.2
@@ -6312,12 +6317,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-plugin-gltf@workspace:packages/vite"
   dependencies:
-    "@gltf-transform/core": ^2.4.6
-    "@gltf-transform/extensions": ^2.4.6
-    "@gltf-transform/functions": ^2.4.6
     "@rollup/pluginutils": ^5.0.2
     draco3dgltf: ^1.5.5
     meshoptimizer: ^0.18.1
+  peerDependencies:
+    "@gltf-transform/core": 2.x
+    "@gltf-transform/extensions": 2.x
+    "@gltf-transform/functions": 2.x
   languageName: unknown
   linkType: soft
 
