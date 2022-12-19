@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-gltf",
   "description": "Rollup plugin for optimizing glTF 3D models",
-  "version": "0.1.3",
+  "version": "3.0.0",
   "type": "module",
   "main": "dist/rollup.cjs",
   "module": "dist/rollup.js",
