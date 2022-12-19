@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "vite-plugin-gltf",
   "description": "Vite plugin for optimizing glTF 3D models",
   "version": "0.1.3",
