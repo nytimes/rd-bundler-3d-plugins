@@ -2,7 +2,7 @@
   "name": "rollup-plugin-gltf",
   "description": "Rollup plugin for optimizing glTF 3D models",
   "repository": "github:nytimes/rd-bundler-3d-plugins",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "type": "module",
   "main": "dist/rollup.cjs",
   "module": "dist/rollup.js",
