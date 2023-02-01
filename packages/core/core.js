@@ -15,6 +15,8 @@ const DEFAULT_PLUGIN_OPTIONS = {
   exclude: "",
   publicPath: "",
   transforms: [],
+  extensions: ALL_EXTENSIONS,
+  dependencies: null, // see plugin.buildStart()
   hash: true,
   verbose: false,
 };
@@ -27,6 +29,8 @@ const DEFAULT_PLUGIN_OPTIONS = {
  * @param {string | string[]} pluginOptions.exclude Minimatch pattern, or array of patterns, specifying excluded files. Default: none.
  * @param {string} pluginOptions.publicPath Path to prepend to all assets in the HTML output. Default: "".
  * @param {Transform[]} pluginOptions.transforms Array of transforms (see: @gltf-transform/functions) applied to all assets. Default: [].
+ * @param {Extension[]} pluginOptions.extensions Array of extensions (see: @gltf-transform/extensions) registered for processing. Default: ALL_EXTENSIONS.
+ * @param {Object} pluginOptions.dependencies Dictionary of extension dependencies (see: https://gltf-transform.donmccurdy.com/classes/core.platformio.html#registerdependencies). Default: Draco and Meshopt libraries.
  * @param {boolean} pluginOptions.hash Appends a unique hash to output files, e.g. 'scene.[hash].glb'. Default: true.
  * @param {boolean} pluginOptions.verbose Enables verbose logging while reading, optimizing, ard writing assets. Default: false.
  * @returns
@@ -68,13 +72,15 @@ export default function gltf(pluginOptions = {}) {
       const DracoEncoder = await draco3d.createEncoderModule();
       io = await new NodeIO()
         .setLogger(logger)
-        .registerExtensions(ALL_EXTENSIONS)
-        .registerDependencies({
-          "draco3d.decoder": DracoDecoder,
-          "draco3d.encoder": DracoEncoder,
-          "meshopt.decoder": MeshoptDecoder,
-          "meshopt.encoder": MeshoptEncoder,
-        });
+        .registerExtensions(pluginOptions.extensions)
+        .registerDependencies(
+          pluginOptions.dependencies || {
+            "draco3d.decoder": DracoDecoder,
+            "draco3d.encoder": DracoEncoder,
+            "meshopt.decoder": MeshoptDecoder,
+            "meshopt.encoder": MeshoptEncoder,
+          }
+        );
     },
 
     configResolved(config) {
@@ -181,7 +187,10 @@ function formatBytes(bytes, decimals = 2) {
 }
 
 function isAbsoluteURI(uri) {
-  return new URL(uri, 'https://example.com').origin !== new URL('https://example.com').origin;
+  return (
+    new URL(uri, "https://example.com").origin !==
+    new URL("https://example.com").origin
+  );
 }
 
 // CLI utilities.
