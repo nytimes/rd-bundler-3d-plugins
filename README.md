@@ -16,6 +16,8 @@ Dependencies:
 
 ## Quickstart
 
+### 1. Installation
+
 Rollup:
 
 ```shell
@@ -28,16 +30,68 @@ Vite:
 npm install --save-dev vite-plugin-gltf
 ```
 
-## Examples
+### 2. Minimal Configuration
 
-The plugin is unopinionated about which optimizations should be applied to your glTF models. Many optimizations are available off the shelf from [`@gltf-transform/functions`](https://gltf-transform.donmccurdy.com/functions.html):
+The plugin is unopinionated about which optimizations should be applied to your glTF models. Here is a minimal configuration that simply applies Draco compression of your assets:
 
 ```js
 // *.config.js
-import gltf from 'rollup-plugin-gltf'; // (a) Rollup
-import gltf from 'vite-plugin-gltf'; // (b) Vite
+import gltf from "rollup-plugin-gltf"; // (a) Rollup
+import gltf from "vite-plugin-gltf"; // (b) Vite
 
-import { dedup, draco, prune, textureResize, mozjpeg, oxipng } from "@gltf-transform/functions";
+import { draco } from "@gltf-transform/functions";
+
+return {
+  // ...
+  plugins: [
+    gltf({
+      transforms: [draco()],
+    }),
+  ],
+};
+```
+
+See [advanced configuration](#advanced-configuration) for more complex examples.
+
+_SvelteKit:_ it seems that in SvelteKit SSR should be disabled in order to avoid mysterious `ReferenceError` issues - see issues filed [here](https://github.com/nytimes/rd-bundler-3d-plugins/issues/19) and on the [SvelteKit repo](https://github.com/sveltejs/kit/issues/9000).
+
+### 3. Asset Placement
+
+Assets should be placed somewhere in the `src` directory, and imported as resolved URLs:
+
+```javascript
+import sceneUrl from "./assets/scene.glb"; // full path: src/assets/scene.glb
+```
+
+_SvelteKit:_ in a SvelteKit project, place your assets somewhere in `src/lib`. Then you can import the asset's post-build url like so:
+
+```svelte
+<script>
+  import sceneUrl from '$lib/assets/scene.glb';
+</script>
+```
+
+### 4. Execution on Build
+
+The plugin will optimize assets _at build time_. Vite has [several modes](https://vitejs.dev/guide/env-and-mode.html#modes), and optimization occurs in production (`vite build`) and preview (`vite preview`) but not development (`vite`) modes.
+
+## Advanced Configuration
+
+Many optimizations are available off the shelf from [`@gltf-transform/functions`](https://gltf-transform.donmccurdy.com/functions.html). You can compose these to form your own optimization pipelines, for example:
+
+```js
+// *.config.js
+import gltf from "rollup-plugin-gltf"; // (a) Rollup
+import gltf from "vite-plugin-gltf"; // (b) Vite
+
+import {
+  dedup,
+  draco,
+  prune,
+  textureResize,
+  mozjpeg,
+  oxipng,
+} from "@gltf-transform/functions";
 import * as squoosh from "@squoosh/lib";
 
 return {
@@ -56,18 +110,18 @@ return {
         oxipng({ squoosh }),
         // compress mesh geometry
         draco(),
-      ]
-    })
-  ]
-}
+      ],
+    }),
+  ],
+};
 ```
 
 Other types of processing can be customized to the needs of your project. For example, the custom transform below converts double-sided materials to single-sided materials, helping to improve [fillrate](https://en.wikipedia.org/wiki/Fillrate):
 
 ```js
 // *.config.js
-import gltf from 'rollup-plugin-gltf'; // (a) Rollup
-import gltf from 'vite-plugin-gltf'; // (b) Vite
+import gltf from "rollup-plugin-gltf"; // (a) Rollup
+import gltf from "vite-plugin-gltf"; // (b) Vite
 
 const frontSide = (options) => {
   return async (document) => {
@@ -79,10 +133,8 @@ const frontSide = (options) => {
 
 return {
   // ...
-  plugins: [
-    gltf({ transforms: [ frontSide() ] })
-  ]
-}
+  plugins: [gltf({ transforms: [frontSide()] })],
+};
 ```
 
 ## Roadmap
