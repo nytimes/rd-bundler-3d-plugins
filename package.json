@@ -16,12 +16,12 @@
     "publish:major": "lerna publish major --force-publish '*' && yarn postpublish"
   },
   "devDependencies": {
-    "@gltf-transform/core": "^2.4.7",
-    "@gltf-transform/extensions": "^2.4.7",
-    "@gltf-transform/functions": "^2.4.7",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "lerna": "^6.1.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^3.5.1"
+    "@gltf-transform/core": "^3.6.0",
+    "@gltf-transform/extensions": "^3.6.0",
+    "@gltf-transform/functions": "^3.6.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "lerna": "^7.3.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.2"
   }
 }

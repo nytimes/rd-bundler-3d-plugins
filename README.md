@@ -92,7 +92,7 @@ import {
   mozjpeg,
   oxipng,
 } from "@gltf-transform/functions";
-import * as squoosh from "@squoosh/lib";
+import sharp from 'sharp';
 
 return {
   // ...
@@ -103,11 +103,8 @@ return {
         prune(),
         // combine duplicated resources
         dedup(),
-        // keep textures under 2048x2048
-        textureResize({ size: [2048, 2048] }),
-        // optimize images
-        mozjpeg({ squoosh }),
-        oxipng({ squoosh }),
+        // optimize images, keep size under 2048x2048
+        textureCompress({ encoder: sharp, resize: [2048, 2048] }),
         // compress mesh geometry
         draco(),
       ],
@@ -151,7 +148,7 @@ Yes, but requests for particular optimization features are best directed to the 
 
 **Will you support other optimization tools?**
 
-Maybe. We're using glTF-Transform because it's compatible with a JavaScript runtime, provides integrations with other optimization tools ([Draco](https://google.github.io/draco/), [Meshoptimizer](https://github.com/zeux/meshoptimizer), [Squoosh](https://github.com/GoogleChromeLabs/squoosh), [Basis Universal](https://github.com/BinomialLLC/basis_universal)), and is extensible enough to allow defining new processing stages easily. We'd encourage you to see if your requirements are possible within that framework, but would be glad to hear from you if not.
+Maybe. We're using glTF-Transform because it's compatible with a JavaScript runtime, provides integrations with other optimization tools ([Draco](https://google.github.io/draco/), [Meshoptimizer](https://github.com/zeux/meshoptimizer), [Sharp](https://sharp.pixelplumbing.com/), [Basis Universal](https://github.com/BinomialLLC/basis_universal)), and is extensible enough to allow defining new processing stages easily. We'd encourage you to see if your requirements are possible within that framework, but would be glad to hear from you if not.
 
 **Will you support optimizing other file formats?**
 
