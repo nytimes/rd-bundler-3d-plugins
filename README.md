@@ -84,14 +84,7 @@ Many optimizations are available off the shelf from [`@gltf-transform/functions`
 import gltf from "rollup-plugin-gltf"; // (a) Rollup
 import gltf from "vite-plugin-gltf"; // (b) Vite
 
-import {
-  dedup,
-  draco,
-  prune,
-  textureResize,
-  mozjpeg,
-  oxipng,
-} from "@gltf-transform/functions";
+import { dedup, draco, prune, textureCompress } from "@gltf-transform/functions";
 import sharp from 'sharp';
 
 return {
