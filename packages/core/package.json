@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@nyt/bundler-plugin-gltf",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "type": "module",
   "main": "dist/core.cjs",
   "module": "dist/core.js",
