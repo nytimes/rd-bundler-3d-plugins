@@ -18,9 +18,9 @@
   },
   "gitHead": "9554c27f569be48282436381bc672cb81d9fd656",
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.2",
-    "draco3dgltf": "^1.5.5",
-    "meshoptimizer": "^0.18.1"
+    "@rollup/pluginutils": "^5.0.4",
+    "draco3dgltf": "^1.5.6",
+    "meshoptimizer": "^0.19.0"
   },
   "peerDependencies": {
     "@gltf-transform/core": "2.x",

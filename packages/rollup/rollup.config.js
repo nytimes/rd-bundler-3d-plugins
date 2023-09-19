@@ -1,15 +1,15 @@
 import resolve from "@rollup/plugin-node-resolve";
-import pkg from "./package.json" assert { type: "json" };
+import fs from "node:fs/promises";
+
+const pkg = JSON.parse(await fs.readFile("./package.json"));
 
 export default {
-  input: "rollup.js",
+  input: "./rollup.js",
   output: [
     { file: pkg.main, format: "cjs", exports: "default" },
     { file: pkg.module, format: "es", exports: "default" },
   ],
-  plugins: [
-    resolve(),
-  ],
+  plugins: [resolve()],
   external: [
     "path",
     "crypto",

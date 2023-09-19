@@ -1,7 +1,9 @@
-import pkg from "./package.json" assert { type: "json" };
+import fs from "node:fs/promises";
+
+const pkg = JSON.parse(await fs.readFile("./package.json"));
 
 export default {
-  input: "core.js",
+  input: "./core.js",
   output: [
     { file: pkg.main, format: "cjs", exports: "default" },
     { file: pkg.module, format: "es", exports: "default" },
