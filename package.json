@@ -16,9 +16,9 @@
     "publish:major": "lerna publish major --force-publish '*' && yarn postpublish"
   },
   "devDependencies": {
-    "@gltf-transform/core": "^3.6.0",
-    "@gltf-transform/extensions": "^3.6.0",
-    "@gltf-transform/functions": "^3.6.0",
+    "@gltf-transform/core": "^3.7.0",
+    "@gltf-transform/extensions": "^3.7.0",
+    "@gltf-transform/functions": "^3.7.0",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "lerna": "^7.3.0",
     "rimraf": "^5.0.1",
