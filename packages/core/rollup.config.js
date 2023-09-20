@@ -6,7 +6,7 @@ export default {
   input: "./core.js",
   output: [
     { file: pkg.main, format: "cjs", exports: "default" },
-    { file: pkg.module, format: "es", exports: "default" },
+    { file: pkg.exports, format: "es", exports: "default" },
   ],
   external: [
     "path",
