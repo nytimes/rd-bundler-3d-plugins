@@ -11,8 +11,11 @@
     "test": "node test/test.js",
     "version": "yarn build",
     "postpublish": "git push && git push --tags",
+    "publish:prepatch": "lerna publish prepatch --dist-tag next --force-publish '*' && yarn postpublish",
     "publish:patch": "lerna publish patch --force-publish '*' && yarn postpublish",
+    "publish:preminor": "lerna publish preminor --dist-tag next --force-publish '*' && yarn postpublish",
     "publish:minor": "lerna publish minor --force-publish '*' && yarn postpublish",
+    "publish:premajor": "lerna publish premajor --dist-tag next --force-publish '*' && yarn postpublish",
     "publish:major": "lerna publish major --force-publish '*' && yarn postpublish"
   },
   "devDependencies": {
