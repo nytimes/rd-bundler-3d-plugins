@@ -11,14 +11,15 @@
     "test": "node test/test.js",
     "version": "yarn build",
     "postpublish": "git push && git push --tags",
+    "publish:prerelease": "lerna publish prerelease --dist-tag next --force-publish '*' && yarn postpublish",
     "publish:patch": "lerna publish patch --force-publish '*' && yarn postpublish",
     "publish:minor": "lerna publish minor --force-publish '*' && yarn postpublish",
     "publish:major": "lerna publish major --force-publish '*' && yarn postpublish"
   },
   "devDependencies": {
-    "@gltf-transform/core": "^3.6.0",
-    "@gltf-transform/extensions": "^3.6.0",
-    "@gltf-transform/functions": "^3.6.0",
+    "@gltf-transform/core": "^3.7.0",
+    "@gltf-transform/extensions": "^3.7.0",
+    "@gltf-transform/functions": "^3.7.0",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "lerna": "^7.3.0",
     "rimraf": "^5.0.1",

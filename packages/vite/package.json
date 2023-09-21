@@ -2,10 +2,13 @@
   "name": "vite-plugin-gltf",
   "description": "Vite plugin for optimizing glTF 3D models",
   "repository": "github:nytimes/rd-bundler-3d-plugins",
-  "version": "3.2.0",
+  "version": "4.0.0-alpha.2",
   "type": "module",
-  "main": "dist/vite.cjs",
-  "module": "dist/vite.js",
+  "main": "./dist/vite.cjs",
+  "exports": {
+    "require": "./dist/vite.cjs",
+    "default": "./dist/vite.js"
+  },
   "author": "NYTimes R&D",
   "license": "Apache-2.0",
   "files": [
@@ -23,8 +26,11 @@
     "meshoptimizer": "^0.19.0"
   },
   "peerDependencies": {
-    "@gltf-transform/core": "2.x",
-    "@gltf-transform/extensions": "2.x",
-    "@gltf-transform/functions": "2.x"
+    "@gltf-transform/core": "3.x",
+    "@gltf-transform/extensions": "3.x",
+    "@gltf-transform/functions": "3.x"
+  },
+  "devDependencies": {
+    "@nyt/bundler-plugin-gltf": "workspace:^"
   }
 }
