@@ -26,5 +26,8 @@
     "@gltf-transform/core": "3.x",
     "@gltf-transform/extensions": "3.x",
     "@gltf-transform/functions": "3.x"
+  },
+  "devDependencies": {
+    "@nyt/bundler-plugin-gltf": "workspace:^"
   }
 }

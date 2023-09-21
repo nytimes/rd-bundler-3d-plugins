@@ -407,7 +407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nyt/bundler-plugin-gltf@workspace:packages/core":
+"@nyt/bundler-plugin-gltf@workspace:^, @nyt/bundler-plugin-gltf@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@nyt/bundler-plugin-gltf@workspace:packages/core"
   dependencies:
@@ -4821,6 +4821,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rollup-plugin-gltf@workspace:packages/rollup"
   dependencies:
+    "@nyt/bundler-plugin-gltf": "workspace:^"
     "@rollup/pluginutils": ^5.0.4
     draco3dgltf: ^1.5.6
     meshoptimizer: ^0.19.0
@@ -5684,6 +5685,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-plugin-gltf@workspace:packages/vite"
   dependencies:
+    "@nyt/bundler-plugin-gltf": "workspace:^"
     "@rollup/pluginutils": ^5.0.4
     draco3dgltf: ^1.5.6
     meshoptimizer: ^0.19.0
