@@ -2,7 +2,7 @@
   "name": "vite-plugin-gltf",
   "description": "Vite plugin for optimizing glTF 3D models",
   "repository": "github:nytimes/rd-bundler-3d-plugins",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0-alpha.2",
   "type": "module",
   "main": "./dist/vite.cjs",
   "exports": {
