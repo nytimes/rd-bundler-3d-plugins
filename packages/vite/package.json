@@ -5,7 +5,10 @@
   "version": "4.0.0-alpha.1",
   "type": "module",
   "main": "./dist/vite.cjs",
-  "exports": "./dist/vite.js",
+  "exports": {
+    "require": "./dist/vite.cjs",
+    "default": "./dist/vite.js"
+  },
   "author": "NYTimes R&D",
   "license": "Apache-2.0",
   "files": [

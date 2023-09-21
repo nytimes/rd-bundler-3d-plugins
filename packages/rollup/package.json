@@ -5,7 +5,10 @@
   "version": "4.0.0-alpha.1",
   "type": "module",
   "main": "./dist/rollup.cjs",
-  "exports": "./dist/rollup.js",
+  "exports": {
+    "require": "./dist/rollup.cjs",
+    "default": "./dist/rollup.js"
+  },
   "author": "NYTimes R&D",
   "license": "Apache-2.0",
   "files": [
